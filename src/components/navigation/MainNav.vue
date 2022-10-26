@@ -1,36 +1,51 @@
 <template>
   <header class="w-full">
     <div>
-      <div class="flex items-center h-16 px-8 border-b border-brand-grey-1">
-        <RouterLink to="#" class="flex items-center h-full text-2xl pb-0.5">
-          <span class="b">A</span>
-          <span class="r">u</span>
-          <span class="y">s</span>
-          <span class="b">t</span>
-          <span class="g">i</span>
-          <span class="r">n</span>
-          <span class="text-text-grey pl-1">Careers</span>
-        </RouterLink>
-        <nav class="h-full ml-12">
-          <ul class="flex items-center h-full">
-            <li
-              v-for="item in items"
-              :key="item"
-              class="h-full ml-9 first:ml-0"
-            >
-              <RouterLink
-                :to="item.url"
-                class="flex items-center h-full text-sm text-text-grey hover:text-black"
+      <div class="h-16">
+        <div class="flex items-center h-full px-8 border-b border-brand-grey-1">
+          <RouterLink
+            to="#"
+            class="flex items-center h-full text-2xl pb-0.5"
+            data-text="nav-company"
+          >
+            <span class="b">A</span>
+            <span class="r">u</span>
+            <span class="y">s</span>
+            <span class="b">t</span>
+            <span class="g">i</span>
+            <span class="r">n</span>
+            <span class="text-text-grey pl-1"> Careers</span>
+          </RouterLink>
+          <nav class="h-full ml-12">
+            <ul class="flex items-center h-full">
+              <li
+                v-for="item in items"
+                :key="item"
+                class="h-full ml-9 first:ml-0"
+                data-text="nav-item"
               >
-                {{ item.title }}
-              </RouterLink>
-            </li>
-          </ul>
-        </nav>
-        <div class="flex items-center h-full ml-auto">
-          <ProfileImage v-if="isLoggedIn" />
-          <ActionButton v-else @click="userLogin" text="Sign in" />
+                <RouterLink
+                  :to="item.url"
+                  class="flex items-center h-full text-sm text-text-grey hover:text-black"
+                >
+                  {{ item.title }}
+                </RouterLink>
+              </li>
+            </ul>
+          </nav>
+          <div class="flex items-center h-full ml-auto">
+            <ProfileImage v-if="isLoggedIn" data-test="profile-image" />
+            <ActionButton
+              v-else
+              @click="userLogin"
+              text="Sign in"
+              data-test="action-button"
+            />
+          </div>
         </div>
+      </div>
+      <div class="h-16 border-b border-brand-grey-1">
+        <SubNav />
       </div>
     </div>
   </header>
@@ -40,10 +55,11 @@
 import { computed, ref } from 'vue';
 import ActionButton from '@/components/shared/ActionButton.vue';
 import ProfileImage from '@/components/navigation/ProfileImage.vue';
-import { useStoreJobs } from '@/stores/storeJobs';
+import SubNav from '@/components/navigation/SubNav.vue';
+import { useStoreAuth } from '@/stores/storeAuth';
 
 // store
-const storeJobs = useStoreJobs();
+const storeAuth = useStoreAuth();
 //
 
 // navigations' items
@@ -72,8 +88,8 @@ const items = ref([
 //
 
 // user is logged in or not
-const isLoggedIn = computed(() => storeJobs.isLoggedIn);
-const userLogin = () => storeJobs.userLogin();
+const isLoggedIn = computed(() => storeAuth.isLoggedIn);
+const userLogin = () => storeAuth.userLogin();
 //
 </script>
 
