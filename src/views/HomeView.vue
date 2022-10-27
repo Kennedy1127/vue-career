@@ -1,5 +1,9 @@
 <template>
-  <main>Home</main>
+  <main>
+    <TheHero />
+  </main>
 </template>
 
-<script setup></script>
+<script setup>
+import TheHero from '@/components/home/hero/TheHero.vue';
+</script>

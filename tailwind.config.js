@@ -5,6 +5,12 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        xl: { max: '1200px' },
+      },
+      gridTemplateColumns: {
+        24: 'repeat(24,minmax(0,1fr))',
+      },
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
