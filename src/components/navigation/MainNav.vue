@@ -4,7 +4,7 @@
       <div class="h-16">
         <div class="flex items-center h-full px-8 border-b border-brand-grey-1">
           <RouterLink
-            to="#"
+            :to="{ name: 'Home' }"
             class="flex items-center h-full text-2xl pb-0.5"
             data-text="nav-company"
           >
@@ -25,7 +25,7 @@
                 data-text="nav-item"
               >
                 <RouterLink
-                  :to="item.url"
+                  :to="{ name: item.url }"
                   class="flex items-center h-full text-sm text-text-grey hover:text-black"
                 >
                   {{ item.title }}
@@ -44,8 +44,11 @@
           </div>
         </div>
       </div>
-      <div class="h-16 border-b border-brand-grey-1">
-        <SubNav />
+      <div
+        v-if="!isHome || isLoggedIn"
+        class="h-16 border-b border-brand-grey-1"
+      >
+        <SubNav data-test="sub-nav" />
       </div>
     </div>
   </header>
@@ -57,32 +60,38 @@ import ActionButton from '@/components/shared/ActionButton.vue';
 import ProfileImage from '@/components/navigation/ProfileImage.vue';
 import SubNav from '@/components/navigation/SubNav.vue';
 import { useStoreAuth } from '@/stores/storeAuth';
+import { useRoute } from 'vue-router';
 
-// store
+// store route
 const storeAuth = useStoreAuth();
+const route = useRoute();
+//
+
+// route check
+const isHome = computed(() => route.name === 'Home');
 //
 
 // navigations' items
 const items = ref([
   {
     title: 'Teams',
-    url: '#',
+    url: 'Teams',
   },
   {
     title: 'Locations',
-    url: '#',
+    url: 'Locations',
   },
   {
     title: 'Benefits',
-    url: '#',
+    url: 'Benefits',
   },
   {
     title: 'Jobs',
-    url: '#',
+    url: 'JobResults',
   },
   {
     title: 'Students',
-    url: '#',
+    url: 'Students',
   },
 ]);
 //

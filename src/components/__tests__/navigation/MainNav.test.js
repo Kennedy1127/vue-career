@@ -1,8 +1,13 @@
 import { createTestingPinia } from '@pinia/testing';
 import { shallowMount, RouterLinkStub } from '@vue/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import MainNav from '@/components/navigation/MainNav.vue';
 import { useStoreAuth } from '@/stores/storeAuth';
+import { useRoute } from 'vue-router';
+
+vi.mock('vue-router', () => ({
+  useRoute: vi.fn(),
+}));
 
 describe('MainNav', () => {
   const createConfig = (auth = {}) => ({
@@ -19,6 +24,12 @@ describe('MainNav', () => {
         RouterLink: RouterLinkStub,
       },
     },
+  });
+
+  beforeEach(() => {
+    useRoute.mockImplementationOnce(() => ({
+      name: 'Home',
+    }));
   });
 
   it('renders company name', () => {
@@ -61,6 +72,12 @@ describe('MainNav', () => {
       const wrapper = shallowMount(MainNav, createConfig({ isLoggedIn: true }));
       const profileImage = wrapper.findComponent(`[data-test="profile-image"]`);
       expect(profileImage.exists()).toBe(true);
+    });
+
+    it('renders subnav', () => {
+      const wrapper = shallowMount(MainNav, createConfig({ isLoggedIn: true }));
+      const subnav = wrapper.findComponent(`[data-test="sub-nav"]`);
+      expect(subnav.exists()).toBe(true);
     });
   });
 });
