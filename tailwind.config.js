@@ -22,6 +22,7 @@ module.exports = {
         'brand-blue-2': '#4285f4',
         'text-black': '#202124',
         'text-grey': '#5f6386',
+        'input-text-grey': '#3c4043',
       },
       boxShadow: {
         blue: '0 0 3px 3px #4285f4',

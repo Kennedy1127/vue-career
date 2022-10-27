@@ -24,10 +24,10 @@ const buttonClass = computed(() => ({
 
 <style scoped>
 button {
-  @apply text-xs font-medium px-5 py-2.5;
+  @apply font-medium px-5 py-2.5;
 }
 .primary {
-  @apply rounded bg-brand-blue-1 text-white hover:shadow-blue;
+  @apply text-xs rounded bg-brand-blue-1 text-white hover:shadow-blue;
 }
 
 .secondary {
