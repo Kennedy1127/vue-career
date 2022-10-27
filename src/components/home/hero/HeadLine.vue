@@ -41,7 +41,7 @@ $item-count: 5;
   @for $i from 1 through ($item-count - 1) {
     #{($i * 25) - 10%},
     #{$i * 25%} {
-      transform: translateY((-100% / $item-count) * $i);
+      transform: translateY(calc(-100% / $item-count) * $i);
     }
   }
 }
