@@ -29,7 +29,6 @@ onUnmounted(() => clearInterval(timeout));
 
 <style scoped>
 .landscape {
-  max-width: 400px;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -38,4 +37,22 @@ img {
   width: auto;
   object-fit: contain;
 }
+
+/* @media (max-width: 800px) {
+  .landscape {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 500px) {
+  .landscape {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 300px) {
+  .landscape {
+    max-width: 180px;
+  }
+} */
 </style>

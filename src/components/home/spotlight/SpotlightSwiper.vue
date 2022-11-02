@@ -50,14 +50,14 @@
     <div
       v-if="!isBeginning"
       @click="goToSlide('prev')"
-      class="-left-5 arrow w-[60px] h-[60px] bg-white border border-solid flex items-center justify-center cursor-pointer"
+      class="-left-5 arrow w-[60px] h-[60px] bg-white border border-solid border-brand-grey-1 flex items-center justify-center cursor-pointer"
     >
       <font-awesome-icon icon="fa-solid fa-angle-left" />
     </div>
     <div
       v-if="!isEnd"
       @click="goToSlide('next')"
-      class="-right-5 arrow w-[60px] h-[60px] bg-white border border-solid flex items-center justify-center cursor-pointer"
+      class="-right-5 arrow w-[60px] h-[60px] bg-white border border-solid border-brand-grey-1 flex items-center justify-center cursor-pointer"
     >
       <font-awesome-icon icon="fa-solid fa-angle-right" />
     </div>
@@ -77,7 +77,7 @@ const isBeginning = ref(true);
 const isEnd = ref(false);
 
 const onSwiper = (swiper) => {
-  console.log(swiper);
+  // console.log(swiper);
   onSwiperSlide.value = swiper;
   isBeginning.value = swiper.isBeginning;
   isEnd.value = swiper.isEnd;
@@ -146,6 +146,13 @@ const spotlightLargeImages = ref([
 
 .swiper-slide.card-lg {
   width: 530px;
+}
+
+@media (max-width: 600px) {
+  .swiper-slide,
+  .swiper-slide.card-lg {
+    width: 450px;
+  }
 }
 
 .arrow {

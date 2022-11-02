@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xl: { max: '1200px' },
+        'hero-xl': '1200px',
+        'hero-lg': '1000px',
       },
       gridTemplateColumns: {
         24: 'repeat(24,minmax(0,1fr))',

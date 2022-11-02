@@ -11,9 +11,10 @@ import {
   faMagnifyingGlass,
   faAngleLeft,
   faAngleRight,
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faMagnifyingGlass, faAngleLeft, faAngleRight);
+library.add(faMagnifyingGlass, faAngleLeft, faAngleRight, faLocationDot);
 
 const app = createApp(App);
 

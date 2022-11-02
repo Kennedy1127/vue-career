@@ -1,5 +1,7 @@
 <template>
-  <h1 class="text-[84px] leading-none font-bold tracking-tight mb-[54px]">
+  <h1
+    class="text-[84px] leading-none font-bold tracking-tight mb-[54px] max-[800px]:text-[55px] max-[800px]:mb-[34px]"
+  >
     <div class="scrolling-words-box">
       <ul>
         <li style="color: #ea4335" data-test="scroll-word">Code</li>
