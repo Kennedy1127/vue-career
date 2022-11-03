@@ -15,7 +15,7 @@
           class="hero-xl:col-span-1 hero-lg:col-span-1 max-[1000px]:hidden"
         ></div>
         <div
-          class="hero-xl:col-span-9 hero-lg:col-span-9 max-[1000px]:col-span-full max-[1000px]:row-start-1 justify-self-center self-center"
+          class="w-full h-full hero-xl:col-span-9 hero-lg:col-span-9 max-[1000px]:col-span-full max-[1000px]:row-start-1 flex items-center justify-center"
         >
           <div
             class="max-w-[400px] max-[800px]:max-w-[300px] max-[500px]:max-w-[200px]"

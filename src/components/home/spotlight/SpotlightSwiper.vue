@@ -7,27 +7,28 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       class="mySwiper"
+      data-test="swiper"
     >
-      <swiper-slide>
+      <swiper-slide data-test="swiper-slide">
         <SpotlightCard
           :spotlightTitle="spotlightTitles[0]"
           :spotlightText="spotlightTexts[0]"
         />
       </swiper-slide>
-      <swiper-slide class="card-lg">
+      <swiper-slide class="card-lg" data-test="swiper-slide">
         <SpotlightLargeCard
           :spotlightLargeTitle="spotlightLargeTitles[0]"
           :spotlightLargeText="spotlightLargeTexts[0]"
           :spotlightLargeImage="spotlightLargeImages[0]"
         />
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide data-test="swiper-slide">
         <SpotlightCard
           :spotlightTitle="spotlightTitles[1]"
           :spotlightText="spotlightTexts[1]"
         />
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide data-test="swiper-slide">
         <SpotlightCard
           :spotlightTitle="spotlightTitles[2]"
           :spotlightText="spotlightTexts[2]"
@@ -40,7 +41,7 @@
           :spotlightLargeImage="spotlightLargeImages[1]"
         />
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide data-test="swiper-slide">
         <SpotlightCard
           :spotlightTitle="spotlightTitles[3]"
           :spotlightText="spotlightTexts[3]"
@@ -51,6 +52,7 @@
       v-if="!isBeginning"
       @click="goToSlide('prev')"
       class="-left-5 arrow w-[60px] h-[60px] bg-white border border-solid border-brand-grey-1 flex items-center justify-center cursor-pointer"
+      data-test="is-beginning"
     >
       <font-awesome-icon icon="fa-solid fa-angle-left" />
     </div>
@@ -58,6 +60,7 @@
       v-if="!isEnd"
       @click="goToSlide('next')"
       class="-right-5 arrow w-[60px] h-[60px] bg-white border border-solid border-brand-grey-1 flex items-center justify-center cursor-pointer"
+      data-test="is-end"
     >
       <font-awesome-icon icon="fa-solid fa-angle-right" />
     </div>
@@ -79,8 +82,6 @@ const isEnd = ref(false);
 const onSwiper = (swiper) => {
   // console.log(swiper);
   onSwiperSlide.value = swiper;
-  isBeginning.value = swiper.isBeginning;
-  isEnd.value = swiper.isEnd;
 };
 
 const onSlideChange = () => {
@@ -97,7 +98,6 @@ const goToSlide = (diraction) => {
   }
   return onSwiperSlide.value.slideNext();
 };
-
 //
 
 // spotlight titles and texts default

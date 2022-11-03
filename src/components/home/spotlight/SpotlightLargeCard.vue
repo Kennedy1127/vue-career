@@ -1,6 +1,10 @@
 <template>
   <RouterLink :to="{ name: 'JobResults' }">
-    <div class="h-[268px] flex flex-col justify-end text-white" ref="container">
+    <div
+      class="h-[268px] flex flex-col justify-end text-white"
+      ref="container"
+      data-test="container"
+    >
       <div class="px-6 py-4">
         <h3 class="text-[22px] mb-3 font-medium">
           {{ props.spotlightLargeTitle }}
@@ -37,7 +41,8 @@ const props = defineProps({
 const container = ref(null);
 
 onMounted(() => {
-  container.value.style.backgroundImage = `linear-gradient(180deg, transparent 33%, rgba(0, 0, 0, 0.8)),url(${props.spotlightLargeImage})`;
+  container.value.style.backgroundImage = `url(${props.spotlightLargeImage})`;
+  container.value.style.background = `linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 0.85)),url(${props.spotlightLargeImage})`;
   container.value.style.backgroundSize = 'cover';
 });
 </script>

@@ -2,7 +2,12 @@
   <div class="rounded-lg overflow-hidden">
     <RouterLink :to="{ name: 'JobResults' }">
       <div class="h-[102px] bg-[#e8eaed]">
-        <img :src="imageLink" alt="" class="w-full h-full object-contain" />
+        <img
+          :src="imageLink"
+          alt=""
+          class="w-full h-full object-contain"
+          data-test="image"
+        />
       </div>
       <div class="h-[166px] bg-white">
         <div class="px-6 py-4">
