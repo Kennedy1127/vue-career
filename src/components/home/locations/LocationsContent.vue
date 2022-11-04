@@ -47,7 +47,7 @@ const locations = ref([
     jobs: `828 jobs`,
   },
   {
-    city: 'Loa Angeles',
+    city: 'Los Angeles',
     jobs: `534 jobs`,
   },
   {

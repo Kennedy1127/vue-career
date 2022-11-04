@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <MainNavVue />
-  </div>
-  <div>
-    <RouterView />
-  </div>
-  <footer>
-    <TheFooterVue />
-  </footer>
+  <MainNavVue />
+
+  <RouterView />
+
+  <TheFooterVue />
 </template>
 
 <script setup>

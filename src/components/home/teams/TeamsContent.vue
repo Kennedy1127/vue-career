@@ -16,7 +16,7 @@
           <RouterLink :to="{ name: 'Teams' }">{{ team.title }}</RouterLink>
         </h3>
         <p class="text-base my-4">
-          {{ team.texts }}
+          {{ team.text }}
         </p>
       </div>
       <div class="row-start-1 col-[5_/_span_1]"></div>
@@ -36,19 +36,19 @@ import { ref } from 'vue';
 const teams = ref([
   {
     title: 'Engineering & Tech',
-    texts: `Develop the products and tools of the future for billions of users.`,
+    text: `Develop the products and tools of the future for billions of users.`,
   },
   {
     title: 'Sales, Service & Support',
-    texts: `Equip businesses with the right tools to help them grow.`,
+    text: `Equip businesses with the right tools to help them grow.`,
   },
   {
     title: 'People',
-    texts: `Find, grow, and support the people who make Google great.`,
+    text: `Find, grow, and support the people who make Google great.`,
   },
   {
     title: 'Consumer Hardware',
-    texts: `Make people's lives better through technology.`,
+    text: `Make people's lives better through technology.`,
   },
 ]);
 </script>

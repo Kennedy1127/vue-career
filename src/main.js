@@ -12,9 +12,28 @@ import {
   faAngleLeft,
   faAngleRight,
   faLocationDot,
+  faAngleDown,
+  faAngleUp,
+  faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faInstagram,
+  faTwitter,
+  faYoutube,
+  faLinkedin,
+  faFacebook,
+} from '@fortawesome/free-brands-svg-icons';
 
-library.add(faMagnifyingGlass, faAngleLeft, faAngleRight, faLocationDot);
+library.add(
+  faMagnifyingGlass,
+  faAngleLeft,
+  faAngleRight,
+  faLocationDot,
+  faAngleDown,
+  faAngleUp,
+  faArrowUpRightFromSquare
+);
+library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
 
 const app = createApp(App);
 

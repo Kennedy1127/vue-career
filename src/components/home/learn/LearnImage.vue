@@ -2,6 +2,7 @@
   <div
     class="relative home-lg:max-w-[600px] home-lg:w-1/2 max-w-[670px] w-full home-lg:min-h-[500px] home-sm:min-h-[340px] min-h-[270px] home-lg:mx-3 mb-5 rounded-lg overflow-hidden"
     ref="image"
+    data-test="background-image"
   >
     <RouterLink :to="{ name: 'JobResults' }" class="w-full h-full">
       <div class="absolute left-10 bottom-8 z-10 w-3/4">

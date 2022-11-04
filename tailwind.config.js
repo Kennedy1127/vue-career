@@ -13,6 +13,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         24: 'repeat(24,minmax(0,1fr))',
+        22: 'repeat(22,minmax(0,1fr))',
+        20: 'repeat(20,minmax(0,1fr))',
       },
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
