@@ -9,13 +9,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faMagnifyingGlass,
-<<<<<<< HEAD
   faAngleLeft,
   faAngleRight,
   faLocationDot,
   faAngleDown,
   faAngleUp,
   faArrowUpRightFromSquare,
+  faBars,
+  faBookmark,
+  faBell,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faInstagram,
@@ -32,17 +34,14 @@ library.add(
   faLocationDot,
   faAngleDown,
   faAngleUp,
-  faArrowUpRightFromSquare
-);
-library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
-=======
+  faArrowUpRightFromSquare,
   faBars,
   faBookmark,
-  faBell,
-} from '@fortawesome/free-solid-svg-icons';
+  faBell
+);
+library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
 
 library.add(faMagnifyingGlass, faBars, faBookmark, faBell);
->>>>>>> navigation
 
 const app = createApp(App);
 
