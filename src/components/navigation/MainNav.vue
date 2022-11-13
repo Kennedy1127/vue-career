@@ -61,11 +61,11 @@
     </div>
     <div
       v-if="isShowBars"
-      class="fixed top-0 left-0 w-screen h-screen bg-black opacity-40"
+      class="fixed top-0 left-0 z-50 w-screen h-screen bg-black opacity-40"
       @click="clickBackground"
     ></div>
     <div
-      class="fixed top-0 left-0 w-[280px] max-[330px]:w-4/5 h-full bg-white responsive-navigation"
+      class="fixed top-0 left-0 z-50 w-[280px] max-[330px]:w-4/5 h-full bg-white responsive-navigation"
       ref="responsiveNavigation"
     >
       <div class="">
@@ -158,11 +158,13 @@ const responsiveNavigation = ref(null);
 const navigationIn = () => {
   responsiveNavigation.value.classList.remove('responsive-navigation-out');
   responsiveNavigation.value.classList.add('responsive-navigation-in');
+  document.documentElement.style.overflow = 'hidden';
 };
 
 const navigationOut = () => {
   responsiveNavigation.value.classList.remove('responsive-navigation-in');
   responsiveNavigation.value.classList.add('responsive-navigation-out');
+  document.documentElement.style.overflow = 'visible';
 };
 
 const clickBars = () => {
