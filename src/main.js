@@ -7,9 +7,14 @@ import '@/style.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+  faMagnifyingGlass,
+  faBars,
+  faBookmark,
+  faBell,
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faMagnifyingGlass);
+library.add(faMagnifyingGlass, faBars, faBookmark, faBell);
 
 const app = createApp(App);
 
