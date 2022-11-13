@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faMagnifyingGlass,
+<<<<<<< HEAD
   faAngleLeft,
   faAngleRight,
   faLocationDot,
@@ -34,6 +35,14 @@ library.add(
   faArrowUpRightFromSquare
 );
 library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
+=======
+  faBars,
+  faBookmark,
+  faBell,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faMagnifyingGlass, faBars, faBookmark, faBell);
+>>>>>>> navigation
 
 const app = createApp(App);
 

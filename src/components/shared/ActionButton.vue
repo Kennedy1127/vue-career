@@ -24,7 +24,11 @@ const buttonClass = computed(() => ({
 
 <style scoped>
 button {
+<<<<<<< HEAD
   @apply font-medium px-5 py-2.5;
+=======
+  @apply text-xs font-medium px-5 py-2.5 max-[400px]:px-4 max-[400px]:py-2;
+>>>>>>> navigation
 }
 .primary {
   @apply text-xs rounded bg-brand-blue-1 text-white hover:shadow-blue;
