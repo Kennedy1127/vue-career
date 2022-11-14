@@ -6,10 +6,14 @@
           class="flex items-center h-full px-8 max-[1000px]:px-4 border-b border-brand-grey-1"
         >
           <div
-            class="p-[6px] hover:cursor-pointer min-[1000px]:hidden"
+            v-if="currentWindowWidth"
+            class="p-[6px] hover:cursor-pointer"
             @click="clickBars"
           >
-            <font-awesome-icon icon="fa-solid fa-bars" />
+            <font-awesome-icon
+              icon="fa-solid fa-bars"
+              data-test="navigation-bars"
+            />
           </div>
           <RouterLink
             :to="{ name: 'Home' }"
@@ -24,7 +28,11 @@
             <span class="r">n</span>
             <span class="text-text-grey pl-1"> Careers</span>
           </RouterLink>
-          <nav class="h-full ml-12 max-[1000px]:hidden">
+          <nav
+            v-if="!currentWindowWidth"
+            class="h-full ml-12"
+            data-test="navigation-items-desktop"
+          >
             <ul class="flex items-center h-full">
               <li
                 v-for="item in items"
@@ -63,10 +71,12 @@
       v-if="isShowBars"
       class="fixed top-0 left-0 z-50 w-screen h-screen bg-black opacity-40"
       @click="clickBackground"
+      data-test="backdrop"
     ></div>
     <div
       class="fixed top-0 left-0 z-50 w-[280px] max-[330px]:w-4/5 h-full bg-white responsive-navigation"
       ref="responsiveNavigation"
+      data-test="navigation-items-mobile"
     >
       <div class="">
         <div class="h-16 border-b border-brand-grey-1">
@@ -84,12 +94,7 @@
         </div>
         <nav class="py-5">
           <ul class="flex flex-col h-full">
-            <li
-              v-for="item in items"
-              :key="item"
-              class="mb-8 first:mt-8"
-              data-text="nav-item"
-            >
+            <li v-for="item in items" :key="item" class="mb-8 first:mt-8">
               <RouterLink
                 :to="{ name: item.url }"
                 class="text-sm text-text-grey hover:text-black px-4 py-2"
@@ -119,6 +124,14 @@ const route = useRoute();
 
 // route check
 const isHome = computed(() => route.name === 'Home');
+//
+
+// check if current window width > 1000
+const windowWidth = ref(window.innerWidth);
+const currentWindowWidth = computed(() => windowWidth.value < 1000);
+window.addEventListener('resize', () => {
+  windowWidth.value = window.innerWidth;
+});
 //
 
 // navigations' items
@@ -177,11 +190,12 @@ const clickBackground = () => {
   navigationOut();
 };
 
-watch(route, () => {
+const currentRouteName = computed(() => route.name);
+
+watch(currentRouteName, () => {
   isShowBars.value = false;
   navigationOut();
 });
-
 //
 </script>
 

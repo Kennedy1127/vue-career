@@ -47,6 +47,23 @@ describe('SubNav', () => {
       const link = wrapper.findComponent(RouterLinkStub);
       expect(link.props().to.name).toBe('JobResults');
     });
+
+    describe('when user is on mobile', () => {
+      it('renders short subnav information', () => {
+        Object.defineProperty(window, 'innerWidth', {
+          writable: true,
+          configurable: true,
+          value: 799,
+        });
+
+        useRoute.mockImplementationOnce(() => ({
+          name: 'Teams',
+        }));
+
+        const wrapper = shallowMount(SubNav, createConfig());
+        expect(wrapper.text()).toMatch('Find a job');
+      });
+    });
   });
 
   describe('when user is on JobResults', () => {
@@ -63,12 +80,29 @@ describe('SubNav', () => {
   describe('when user is logged in', () => {
     it('renders subnav login information', () => {
       useRoute.mockImplementationOnce(() => ({
-        name: 'Home',
+        name: 'Teams',
       }));
 
       const wrapper = shallowMount(SubNav, createConfig({ isLoggedIn: true }));
+      const glassesIcon = wrapper.find(`[data-test="glasses"]`);
+      expect(glassesIcon.exists()).toBe(true);
       expect(wrapper.text()).toMatch('Saved jobs');
       expect(wrapper.text()).toMatch('Job alerts');
+    });
+
+    describe('when user is on Home', () => {
+      it('does not render glasses', () => {
+        useRoute.mockImplementationOnce(() => ({
+          name: 'Home',
+        }));
+
+        const wrapper = shallowMount(
+          SubNav,
+          createConfig({ isLoggedIn: true })
+        );
+        const glassesIcon = wrapper.find(`[data-test="glasses"]`);
+        expect(glassesIcon.exists()).toBe(false);
+      });
     });
   });
 });

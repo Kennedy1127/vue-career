@@ -4,10 +4,11 @@
       v-if="!isHome"
       icon="fa-solid fa-magnifying-glass"
       class="mr-3"
+      data-test="glasses"
     />
     <div v-if="!isHome" class="tracking-wide">
       <div v-if="!isJobResults" class="text-text-black">
-        <div class="max-[800px]:hidden">
+        <div v-if="!currentWindowWidth">
           <span>Find your next job at Austin. </span>
           <RouterLink
             :to="{ name: 'JobResults' }"
@@ -15,7 +16,7 @@
             >What do you want to do?
           </RouterLink>
         </div>
-        <div class="min-[800px]">
+        <div v-if="currentWindowWidth">
           <RouterLink
             :to="{ name: 'JobResults' }"
             class="underline text-brand-blue-1"
@@ -39,7 +40,7 @@
     </div>
     <div
       v-if="isLoggedIn"
-      class="flex items-center ml-auto text-text-grey min-[1000px]:hidden"
+      class="flex items-center ml-auto text-text-grey home-lg:hidden"
     >
       <RouterLink to="#" class="hover:text-text-black">
         <font-awesome-icon icon="fa-solid fa-bell" class="w-4 h-4" />
@@ -52,7 +53,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStoreAuth } from '@/stores/storeAuth';
 
@@ -68,5 +69,13 @@ const isJobResults = computed(() => route.name === 'JobResults');
 
 // loggin check
 const isLoggedIn = computed(() => storeAuth.isLoggedIn);
+//
+
+// check if current window width > 800
+const windowWidth = ref(window.innerWidth);
+const currentWindowWidth = computed(() => windowWidth.value < 800);
+window.addEventListener('resize', () => {
+  windowWidth.value = window.innerWidth;
+});
 //
 </script>

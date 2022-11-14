@@ -22,6 +22,7 @@ describe('MainNav', () => {
       ],
       stubs: {
         RouterLink: RouterLinkStub,
+        FontAwesomeIcon: true,
       },
     },
   });
@@ -78,6 +79,79 @@ describe('MainNav', () => {
       const wrapper = shallowMount(MainNav, createConfig({ isLoggedIn: true }));
       const subnav = wrapper.findComponent(`[data-test="sub-nav"]`);
       expect(subnav.exists()).toBe(true);
+    });
+  });
+
+  describe('when user clicks item link', () => {
+    it('push to target route', () => {
+      const wrapper = shallowMount(MainNav, createConfig());
+      const routerLinks = wrapper.findAllComponents(RouterLinkStub);
+      const routerLinkToHome = routerLinks.find(
+        (link) => link.props().to.name === 'Home'
+      );
+      expect(routerLinkToHome.props().to).toEqual({ name: 'Home' });
+    });
+  });
+
+  describe('when user is on responsive mode', () => {
+    beforeEach(() => {
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: 900,
+      });
+    });
+
+    it('renders responsive mode', () => {
+      const wrapper = shallowMount(MainNav, createConfig());
+      const navigationBars = wrapper.find(`[data-test="navigation-bars"]`);
+      const navigationItems = wrapper.find(
+        `[data-test="navigation-items-desktop"]`
+      );
+
+      expect(navigationBars.exists()).toBe(true);
+      expect(navigationItems.exists()).toBe(false);
+    });
+
+    describe('when user clicks navigation bars', () => {
+      it('renders backdrop', async () => {
+        const wrapper = shallowMount(MainNav, createConfig());
+        const navigationBars = wrapper.find(`[data-test="navigation-bars"]`);
+        await navigationBars.trigger('click');
+        const backdrop = wrapper.find(`[data-test="backdrop"]`);
+        expect(backdrop.exists()).toBe(true);
+      });
+
+      it('renders navigation items', async () => {
+        const wrapper = shallowMount(MainNav, createConfig());
+        const navigationBars = wrapper.find(`[data-test="navigation-bars"]`);
+        await navigationBars.trigger('click');
+        const navigationItems = wrapper.find(
+          `[data-test="navigation-items-mobile"]`
+        );
+        expect(navigationItems.classes()).toContain('responsive-navigation-in');
+      });
+
+      describe('when user clicks background ', () => {
+        it('remove backdrop and navigation items', async () => {
+          const wrapper = shallowMount(MainNav, createConfig());
+          const navigationBars = wrapper.find(`[data-test="navigation-bars"]`);
+          await navigationBars.trigger('click');
+
+          let backdrop = wrapper.find(`[data-test="backdrop"]`);
+          await backdrop.trigger('click');
+
+          const navigationItems = wrapper.find(
+            `[data-test="navigation-items-mobile"]`
+          );
+
+          backdrop = wrapper.find(`[data-test="backdrop"]`);
+          expect(backdrop.exists()).toBe(false);
+          expect(navigationItems.classes()).toContain(
+            'responsive-navigation-out'
+          );
+        });
+      });
     });
   });
 });
