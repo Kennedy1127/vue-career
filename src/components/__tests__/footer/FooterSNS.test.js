@@ -14,7 +14,7 @@ describe('FooterSNS', () => {
   it('renders', () => {
     const wrapper = shallowMount(FooterSNS, createConfig());
     const icons = wrapper.findAll(`[data-test="icon"]`);
-    expect(wrapper.text()).toMatch('Follow Life at Google on');
+    expect(wrapper.text()).toMatch('Follow Life at Austin Careers on');
     expect(icons.length).toBe(5);
   });
 });

@@ -3,7 +3,7 @@
     <p
       class="text-lg text-text-black font-medium home-sm:pr-16 max-[600px]:mt-6 max-[600px]:mb-4"
     >
-      Follow Life at Google on
+      Follow Life at Austin Careers on
     </p>
     <ul class="flex justify-between max-[600px]:mb-6">
       <li v-for="icon in icons" :key="icon" class="home-sm:mr-8">
