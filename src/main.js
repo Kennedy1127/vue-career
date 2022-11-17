@@ -18,6 +18,13 @@ import {
   faBars,
   faBookmark,
   faBell,
+  faSuitcaseMedical,
+  faWallet,
+  faClock,
+  faHandsHoldingChild,
+  faLayerGroup,
+  faWandMagicSparkles,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faInstagram,
@@ -37,7 +44,14 @@ library.add(
   faArrowUpRightFromSquare,
   faBars,
   faBookmark,
-  faBell
+  faBell,
+  faSuitcaseMedical,
+  faWallet,
+  faClock,
+  faHandsHoldingChild,
+  faLayerGroup,
+  faWandMagicSparkles,
+  faCheck
 );
 library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
 
