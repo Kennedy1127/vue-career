@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-8">
+  <footer class="bg-brand-grey-2 py-8">
     <div class="home-container home-lg:mx-auto home-sm:mx-8 mx-5">
       <div class="grid home-lg:grid-cols-24 home-sm:grid-cols-12 grid-cols-4">
         <div

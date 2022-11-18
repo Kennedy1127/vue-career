@@ -28,7 +28,6 @@ module.exports = {
         'text-black': '#202124',
         'text-grey': '#5f6386',
         'input-text-grey': '#3c4043',
-        'benefits-hero-background': '#f8f9fa',
         'benefits-title-background': '#f0f6ff',
       },
       boxShadow: {

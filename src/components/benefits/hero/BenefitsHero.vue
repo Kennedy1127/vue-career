@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-benefits-hero-background home-md:py-16 py-9">
+  <div class="bg-brand-grey-2 home-md:py-16 py-9">
     <div
       class="home-container grid grid-cols-24 max-[1000px]:grid-cols-12 max-[600px]:grid-cols-4 mx-auto max-[1000px]:mx-8"
     >
