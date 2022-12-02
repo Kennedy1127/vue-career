@@ -1,6 +1,9 @@
 <template>
   <div class="max-w-[544px] h-[251px] bg-[#f1f3f4] mx-3 card-shadow">
-    <RouterLink :to="{ name: 'JobResults' }" class="block h-full">
+    <RouterLink
+      :to="{ name: 'JobResults', params: { id: 'results' } }"
+      class="block h-full"
+    >
       <div class="h-[110px]">
         <img
           :src="props.image"

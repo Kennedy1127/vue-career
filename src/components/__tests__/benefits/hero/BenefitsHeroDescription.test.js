@@ -25,6 +25,9 @@ describe('BenefitsHeroDescription', () => {
   it('router link pushes', () => {
     const wrapper = shallowMount(BenefitsHeroDescritpion, createConfig());
     const link = wrapper.findComponent(RouterLinkStub);
-    expect(link.props().to).toEqual({ name: 'JobResults' });
+    expect(link.props().to).toEqual({
+      name: 'JobResults',
+      params: { id: 'results' },
+    });
   });
 });

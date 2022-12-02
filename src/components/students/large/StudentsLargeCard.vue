@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3 card-shadow" ref="card" data-test="card">
     <div class="relative min-h-[505px] max-[1000px]:min-h-[344px]">
-      <RouterLink :to="{ name: 'JobResults' }">
+      <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
         <div class="absolute bottom-[7%] left-[10%] z-10 w-2/3">
           <p
             class="text-[30px] max-[600px]:text-2xl text-white font-light mb-3"

@@ -34,7 +34,10 @@ describe('LearnImage', () => {
     it('push to JobResultsView', () => {
       const wrapper = shallowMount(LearnImage, createConfig());
       const routerLink = wrapper.findComponent(RouterLinkStub);
-      expect(routerLink.props().to).toEqual({ name: 'JobResults' });
+      expect(routerLink.props().to).toEqual({
+        name: 'JobResults',
+        params: { id: 'results' },
+      });
     });
   });
 });

@@ -4,7 +4,7 @@
   >
     <div class="relative h-[340px] min-h-[340px] bg-[#f1f3f4] card-shadow">
       <div class="flex flex-col h-full">
-        <RouterLink :to="{ name: 'JobResults' }">
+        <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
           <div class="h-[145px]">
             <img
               :src="props.image"
@@ -16,7 +16,7 @@
         </RouterLink>
         <div class="flex flex-col h-full py-5 px-4">
           <h2 class="text-lg text-brand-blue-1 font-light">
-            <RouterLink :to="{ name: 'JobResults' }">
+            <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
               {{ props.title }}
             </RouterLink>
           </h2>
@@ -24,14 +24,14 @@
           <div class="flex mt-auto">
             <RouterLink
               RouterLink
-              :to="{ name: 'JobResults' }"
+              :to="{ name: 'JobResults', params: { id: 'results' } }"
               class="font-medium text-sm text-brand-blue-1 pr-3"
             >
               Learn more
             </RouterLink>
             <RouterLink
               RouterLink
-              :to="{ name: 'JobResults' }"
+              :to="{ name: 'JobResults', params: { id: 'results' } }"
               class="font-medium text-sm text-brand-blue-1"
             >
               See jobs

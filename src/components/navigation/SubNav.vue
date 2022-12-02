@@ -11,22 +11,22 @@
         <div v-if="!currentWindowWidth">
           <span>Find your next job at Austin. </span>
           <RouterLink
-            :to="{ name: 'JobResults' }"
+            :to="{ name: 'JobResults', params: { id: 'results' } }"
             class="underline text-brand-blue-1"
             >What do you want to do?
           </RouterLink>
         </div>
         <div v-if="currentWindowWidth">
           <RouterLink
-            :to="{ name: 'JobResults' }"
+            :to="{ name: 'JobResults', params: { id: 'results' } }"
             class="underline text-brand-blue-1"
             >Find a job</RouterLink
           >
         </div>
       </div>
       <div v-else class="text-text-grey">
-        <span class="text-[#137333]">2600 </span>
-        <span>jobs matched</span>
+        <span class="text-[#137333]">{{ storeJobs.filteredJobs.length }}</span>
+        <span> jobs matched</span>
       </div>
     </div>
     <div
@@ -56,9 +56,11 @@
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStoreAuth } from '@/stores/storeAuth';
+import { useStoreJobs } from '@/stores/storeJobs';
 
 // store route
 const storeAuth = useStoreAuth();
+const storeJobs = useStoreJobs();
 const route = useRoute();
 //
 

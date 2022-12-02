@@ -25,6 +25,9 @@ import {
   faLayerGroup,
   faWandMagicSparkles,
   faCheck,
+  faBuilding,
+  faBriefcase,
+  faGraduationCap,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faInstagram,
@@ -51,7 +54,10 @@ library.add(
   faHandsHoldingChild,
   faLayerGroup,
   faWandMagicSparkles,
-  faCheck
+  faCheck,
+  faBuilding,
+  faBriefcase,
+  faGraduationCap
 );
 library.add(faInstagram, faTwitter, faYoutube, faLinkedin, faFacebook);
 

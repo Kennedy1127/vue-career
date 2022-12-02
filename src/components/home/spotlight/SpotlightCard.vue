@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-lg overflow-hidden">
-    <RouterLink :to="{ name: 'JobResults' }">
+    <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
       <div class="h-[102px] bg-[#e8eaed]">
         <img
           :src="imageLink"
@@ -17,7 +17,9 @@
           </p>
         </div>
         <div class="px-6 pb-4 text-xs text-brand-blue-1 font-medium">
-          <RouterLink :to="{ name: 'JobResults' }">See jobs</RouterLink>
+          <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }"
+            >See jobs</RouterLink
+          >
         </div>
       </div>
     </RouterLink>

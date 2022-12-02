@@ -2,7 +2,7 @@
   <div
     class="max-w-[260px] max-[1000px]:max-w-[290px] max-[600px]:max-w-full mx-3 card-shadow"
   >
-    <RouterLink :to="{ name: 'JobResults' }">
+    <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
       <div
         class="relative h-[340px] min-h-[340px] max-[600px]:max-h-[230px]"
         :class="backgroundColor"

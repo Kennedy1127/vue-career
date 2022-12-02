@@ -1,5 +1,5 @@
 <template>
-  <RouterLink :to="{ name: 'JobResults' }">
+  <RouterLink :to="{ name: 'JobResults', params: { id: 'results' } }">
     <div
       class="h-[268px] flex flex-col justify-end text-white"
       ref="container"
@@ -14,7 +14,11 @@
         </p>
       </div>
       <div class="px-6 pb-4 text-sm font-medium">
-        <RouterLink :to="{ name: 'JobResults' }" class="">See jobs</RouterLink>
+        <RouterLink
+          :to="{ name: 'JobResults', params: { id: 'results' } }"
+          class=""
+          >See jobs</RouterLink
+        >
       </div>
     </div>
   </RouterLink>

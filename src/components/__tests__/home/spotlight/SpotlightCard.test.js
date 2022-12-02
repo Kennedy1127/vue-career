@@ -29,7 +29,10 @@ describe('SpotlightCard', () => {
     it('checks router information', () => {
       const wrapper = shallowMount(SpotlightCard, createConfig());
       const routerLink = wrapper.findComponent(RouterLinkStub);
-      expect(routerLink.props().to).toEqual({ name: 'JobResults' });
+      expect(routerLink.props().to).toEqual({
+        name: 'JobResults',
+        params: { id: 'results' },
+      });
     });
   });
 });

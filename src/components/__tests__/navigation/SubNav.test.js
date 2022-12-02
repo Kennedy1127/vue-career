@@ -9,13 +9,14 @@ vi.mock('vue-router', () => ({
 }));
 
 describe('SubNav', () => {
-  const createConfig = (auth = {}) => ({
+  const createConfig = (auth = {}, jobs = {}) => ({
     global: {
       plugins: [
         createTestingPinia({
           createSpy: vi.fn,
           initialState: {
             storeAuth: { isLoggedIn: false, ...auth },
+            storeJobs: { ...jobs },
           },
         }),
       ],
@@ -72,8 +73,12 @@ describe('SubNav', () => {
         name: 'JobResults',
       }));
 
-      const wrapper = shallowMount(SubNav, createConfig());
-      expect(wrapper.text()).toMatch('2600 jobs matched');
+      const wrapper = shallowMount(
+        SubNav,
+        createConfig({}, { jobs: ['test 1', 'test 2', 'test 3'] })
+      );
+
+      expect(wrapper.text()).toMatch('3 jobs matched');
     });
   });
 

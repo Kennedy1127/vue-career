@@ -1,6 +1,6 @@
 <template>
-  <header class="w-full">
-    <div>
+  <header class="w-full" :class="classHeight">
+    <div class="w-full fixed z-30 bg-white">
       <div class="h-16">
         <div
           class="flex items-center h-full px-8 max-[1000px]:px-4 border-b border-brand-grey-1"
@@ -41,7 +41,7 @@
                 data-text="nav-item"
               >
                 <RouterLink
-                  :to="{ name: item.url }"
+                  :to="item.url"
                   class="flex items-center h-full text-sm text-text-grey hover:text-black"
                 >
                   {{ item.title }}
@@ -96,7 +96,7 @@
           <ul class="flex flex-col h-full">
             <li v-for="item in items" :key="item" class="mb-8 first:mt-8">
               <RouterLink
-                :to="{ name: item.url }"
+                to="/"
                 class="text-sm text-text-grey hover:text-black px-4 py-2"
               >
                 {{ item.title }}
@@ -126,6 +126,13 @@ const route = useRoute();
 const isHome = computed(() => route.name === 'Home');
 //
 
+// check is logged in and is on home page
+const classHeight = computed(() => ({
+  'h-16': isHome.value && storeAuth.isLoggedIn === false,
+  'h-32': !isHome.value || storeAuth.isLoggedIn,
+}));
+//
+
 // check if current window width > 1000
 const windowWidth = ref(window.innerWidth);
 const currentWindowWidth = computed(() => windowWidth.value < 1000);
@@ -138,23 +145,23 @@ window.addEventListener('resize', () => {
 const items = ref([
   {
     title: 'Teams',
-    url: 'Teams',
+    url: '/teams',
   },
   {
     title: 'Locations',
-    url: 'Locations',
+    url: '/locations',
   },
   {
     title: 'Benefits',
-    url: 'Benefits',
+    url: '/benefits',
   },
   {
     title: 'Jobs',
-    url: 'JobResults',
+    url: '/jobs/results',
   },
   {
     title: 'Students',
-    url: 'Students',
+    url: '/students',
   },
 ]);
 //

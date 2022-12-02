@@ -13,7 +13,7 @@
     <p class="text-base mt-6 max-[1000px]:mb-9">
       Learn more about Austin’s benefits on
       <RouterLink
-        :to="{ name: 'JobResults' }"
+        :to="{ name: 'JobResults', params: { id: 'results' } }"
         class="text-brand-blue-1 underline"
       >
         our site featuring Austinrs’ experience.
